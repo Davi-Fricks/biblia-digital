@@ -160,7 +160,6 @@ body {
 }
 
 .rodape {
-    position: fixed;
     height: 10em;
     left: 0;
     width: 100%;
@@ -168,7 +167,6 @@ body {
     background: var(--cor-de-rodape);
     text-align: center;
     padding: 2em 0 1.5em;
-    bottom: 0;
     z-index: 1;
 }
 
