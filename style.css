@@ -7,7 +7,7 @@
     --cinza-principal: #9b9b9b;
     --titulo-size: 38px;
     --azul-botao-ativado: linear-gradient(0deg, #2647ff, #b4bfff);
-    --cor-de-rodape: #00358556;
+    --cor-de-rodape: linear-gradient(0deg, #001c4660, #001e4b70);
 }
 
 body {
@@ -20,6 +20,7 @@ body {
 * {
     padding: 0;
     margin: 0;
+    z-index: 2;
 }
 
 .principal {
@@ -143,6 +144,7 @@ body {
     border-radius: 10px;
     border: none;
     text-align: justify;
+    width: 2000em;
 }
 
 .verse-box h2 {
@@ -157,13 +159,16 @@ body {
 }
 
 .rodape {
-    position: absolute;
+    position: fixed;
     height: 10em;
+    left: 0;
     width: 100%;
     margin: 15em 0 0 0;
-    background-color: var(--cor-de-rodape);
+    background: var(--cor-de-rodape);
     text-align: center;
     padding: 2em 0 1.5em;
+    bottom: 0;
+    z-index: 1;
 }
 
 .rodape__lista {
