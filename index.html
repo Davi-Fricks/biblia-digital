@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bíblia Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="img/biblia.ico" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <section class="conteiner principal">
+        <div class="conteiner__caixa">
+            <h1 class="conteiner__titulo">Bíblia Robert Murray Mccheyne</h1>
+            <a href="https://marcasdoevangelho.com.br/leitura-devocional/" target="_blank" class="conteiner__botao">Saiba mais</a>
+            <p class="conteiner__aviso">A Bíblia Robert Murray Mccheyne Pertence legalmente a igreja Assembleia de Deus
+                Marcas do Evangelho.</p>
+        </div>
+    </section>
+
+    <section class="secundario conteiner">
+        <div class="conteiner__caixa biblia__caixa">
+            <div class="conteiner__cabecario">
+                <h1 class="cabecario__titulo"> Bíblia Online </h1>
+                <div class="cabecario__searchbox">
+                    <div class="cabecario__caixainput">
+                        <input type="number" id="dia" placeholder="Dia (ex: 1)" class="cabecario__input"
+                            autocomplete="on">
+
+                        <input list="meses" id="mes" class="cabecario__input" placeholder="Escolha o mês:">
+
+                        <datalist id="meses">
+                            <option value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </datalist>
+                    </div>
+                    </input>
+
+                    <button class="conteiner__botao cabecario__botao" id="searchButton">Buscar Capítulo</button>
+                </div>
+            </div>
+
+            <div class="biblia-leituras">
+                <div>
+                    <h3 class="conteiner__titulo"> Leitura Familiar</h3>
+                    <div class="verse-box" id="leitura-familiar">
+                        <h2 id="verseTitle">Selecione um capítulo para exibir</h2>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="conteiner__titulo"> Leitura Pessoal</h3>
+                    <div class="verse-box" id="leitura-pessoal">
+                        <h2 id="verseTitle">Selecione um capítulo para exibir</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <ul class="rodape__lista">
+            <li class="lista__sites">
+                <a href="https://marcasdoevangelho.com.br/" alt="uma logo de cruz" target="_blank"><img
+                        src="img/Cruz.png"></a>
+            </li>
+            <li class="lista__sites">
+                <a href="https://www.facebook.com/marcasdoevangelho/?locale=pt_BR" alt="Logo da facebook"
+                    target="_blank"><img src="img/Facebook.png"></a>
+            </li>
+            <li class="lista__sites">
+                <a href="https://www.instagram.com/marcasdoevangelho/" alt="Logo do Instagram" target="_blank"><img
+                        src="img/Instagram.png"></a>
+            </li>
+            <li class="lista__sites">
+                <a href="https://www.youtube.com/@MarcasdoEvangelho" alt="Logo do Youtube" target="_blank"><img
+                        src="img/Youtube.png"></a>
+            </li>
+        </ul>
+        <p class="rodape__texto">
+            Por favor entre nos sites das plataformas acima de nossa igreja.
+        </p>
+        <p class="rodape__texto">
+            A contribuição com a manutenção e expansão da obra de Deus é um grande privilégio. Essa é uma forma de
+            demonstrar que o nosso coração não está no dinheiro, mas em Deus e em Sua vontade.
+        </p>
+
+        <p class="rodape__texto">
+            Você pode fazer sua contribuição por transferência bancária, PicPay ou PIX. <a
+                href="https://marcasdoevangelho.com.br/contribua/" target="_blank"><b>Veja como.</b></a>
+        </p>
+
+    </footer>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
