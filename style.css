@@ -10,6 +10,7 @@
     --cor-de-rodape: linear-gradient(0deg, #001c4660, #001e4b70);
 }
 
+
 body {
     background-color: var(--cor-de-fundo-principal);
     font-size: 16px;
