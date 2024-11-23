@@ -10,7 +10,6 @@
     --cor-de-rodape: linear-gradient(0deg, #001c4660, #001e4b70);
 }
 
-
 body {
     background-color: var(--cor-de-fundo-principal);
     font-size: 16px;
@@ -146,6 +145,8 @@ body {
     border: none;
     text-align: justify;
     width: 2000em;
+    max-height: 12em;
+    overflow-y: scroll;
 }
 
 .verse-box h2 {
@@ -207,5 +208,9 @@ body {
     border-radius: 1000px;
     height: 61px;
     width: 59px;
+}
+
+.lista__sites a img{
+    z-index: 1;
 }
 
