@@ -115,6 +115,10 @@ body {
     width: auto;
 }
 
+.conteiner__ancora{
+    padding: 0.5em 0;
+}
+
 
 .cabecario__searchbox {
     display: flex;
