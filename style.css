@@ -101,7 +101,6 @@ body {
 .cabecario__botao {
     text-align: center;
     height: auto;
-    justify-content: center;
     align-items: center;
     font-size: 16px;
     padding: 0.5em;
@@ -116,7 +115,9 @@ body {
 }
 
 .conteiner__ancora{
-    padding: 0.5em 0;
+    display: inline-block;
+    height: 2.7em;
+    width: 5em;
 }
 
 
