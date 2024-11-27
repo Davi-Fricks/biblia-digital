@@ -69,6 +69,7 @@ body {
 
 .secundario {
     grid-template-columns: 100%;
+    width: 100%;
 }
 
 .biblia__caixa {
