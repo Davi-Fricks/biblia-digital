@@ -114,10 +114,12 @@ body {
     width: auto;
 }
 
-.conteiner__ancora{
-    display: inline-block;
-    height: 2.7em;
-    width: 5em;
+.cabecario__ancora{
+    background-color: #000;
+    border-radius: 1000px;
+    height: 61px;
+    width: 59px;
+    margin-top: 1em;
 }
 
 
@@ -171,7 +173,7 @@ body {
 .rodape {
     height: 10em;
     left: 0;
-    width: 100%;
+    width: 100vw;
     margin: 15em 0 0 0;
     background: var(--cor-de-rodape);
     text-align: center;
