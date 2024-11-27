@@ -171,7 +171,7 @@ body {
 .rodape {
     height: 10em;
     left: 0;
-    width: 100vw;
+    width: 100%;
     margin: 15em 0 0 0;
     background: var(--cor-de-rodape);
     text-align: center;
