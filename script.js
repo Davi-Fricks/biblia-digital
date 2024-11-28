@@ -12704,64 +12704,6 @@ const novembro = [
         dia: 28,      // Dia da leitura
         mes: 11,      // Mês da leitura
         leitura_familia: [
-            {
-                ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1cr",            // Abreviação do livro 
-                capitulo: 24,            // Capitulo que será feita a leitura
-                verso_inicial: 1,       // Verso em que se inicia a leitura
-                verso_final: 31,        // Verso que termina a leitura
-                versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_verdes: [],    // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_azuis: []        // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-            },
-            {
-                ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1cr",            // Abreviação do livro 
-                capitulo: 25,            // Capitulo que será feita a leitura
-                verso_inicial: 1,       // Verso em que se inicia a leitura
-                verso_final: 31,        // Verso que termina a leitura
-                versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_verdes: [],    // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_azuis: []        // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-            },
-            {
-                ordem: 3,               // Ordem que o livro está na leitura
-                livro: "1pe",             // Abreviação do livro 
-                capitulo: 5,             // Capitulo que será feita a leitura
-                verso_inicial: 1,        // Verso em que se inicia a leitura
-                verso_final: 14,         // Verso que termina a leitura
-                versos_vermelhos: [],    // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_verdes: [10, 11],       // Lista com o número dos versos que estão em verde (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_azuis: [5, 6, 7, 14]   // Lista com o número dos versos que estão em azul (colocar os números separados por virgula Ex.: [1, 2, 3])
-            },
-
-
-        ],
-        leitura_pessoal: [
-            {
-                ordem: 1,               // Ordem que o livro está na leitura
-                livro: "mq",            // Abreviação do livro 
-
-                capitulo: 3,            // Capitulo que será feita a leitura
-                verso_inicial: 1,       // Verso em que se inicia a leitura
-                verso_final: 12,        // Verso que termina a leitura
-                versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_verdes: [],      // Lista com o número dos versos que estão em verde (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_azuis: []        // Lista com o número dos versos que estão em azul (colocar os números separados por virgula Ex.: [1, 2, 3])
-            },
-            {
-                ordem: 2,               // Ordem que o livro está na leitura
-                livro: "lc",                    // Abreviação do livro 
-                capitulo: 12,                    // Capitulo que será feita a leitura
-                verso_inicial: 1,               // Verso em que se inicia a leitura
-                verso_final: 59,                // Verso que termina a leitura
-                versos_vermelhos: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59],    // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_verdes: [29],    // Lista com o número dos versos que estão em verde (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_azuis: []                // Lista com o número dos versos que estão em azul (colocar os números separados por virgula Ex.: [1, 2, 3])
-            },
-
-
-        ]
     },
 
     {
