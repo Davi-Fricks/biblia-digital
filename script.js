@@ -1,5 +1,6 @@
-document.getElementById('searchButton').addEventListener('click', fetchChapter);
-document.getElementById('searchButton').addEventListener('click', fetchChapter);
+const searchButton = document.getElementById('searchButton')
+searchButton.addEventListener('click', fetchChapter);
+searchButton.addEventListener('keyup', fetchChapter);
 
 function fetchChapter() {
     debugger
