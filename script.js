@@ -1,4 +1,5 @@
 document.getElementById('searchButton').addEventListener('click', fetchChapter);
+document.getElementById('searchButton').addEventListener('click', fetchChapter);
 
 function fetchChapter() {
     debugger
