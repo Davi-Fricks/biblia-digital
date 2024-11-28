@@ -86,7 +86,8 @@ body {
     font-family: var(--fonte-principal);
     border-radius: 5px;
     margin: 0.5em;
-    width: 3em;
+    width: 10em;
+    line-height: 2em;
 }
 
 .cabecario__titulo {
@@ -102,7 +103,7 @@ body {
 
 .cabecario__botao {
     text-align: center;
-    height: auto;
+    height: 40px;
     align-items: center;
     font-size: 16px;
     padding: 0.5em;
@@ -117,11 +118,10 @@ body {
 }
 
 .conteiner__ancora{
-    background-color: #000;
-    border-radius: 1000px;
     height: 61px;
     width: 59px;
     margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 
@@ -129,6 +129,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .cabecario__caixainput {
@@ -225,4 +226,3 @@ body {
 .lista__sites a img{
     z-index: 1;
 }
-
