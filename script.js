@@ -1,9 +1,13 @@
 const searchButton = document.getElementById('searchButton')
 searchButton.addEventListener('click', fetchChapter);
-searchButton.addEventListener('keyup', fetchChapter);
+searchButton.addEventListener('keypress', teste);
+
+function teste() {
+    console.log("Vc COnseguiu")
+}
+
 
 function fetchChapter() {
-    debugger
     const chave = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHIiOiJTdW4gSnVuIDMwIDIwMjQgMTg6NTI6MTUgR01UKzAwMDAubHVjaWFubzU3QGdtYWlsLmNvbSIsImlhdCI6MTcxOTc3MzUzNX0.GYJ2ialkCn4HztSsjHfBF-cE6Fi_lCJIqvDqFHSMWTI';
     const dia = document.getElementById('dia').value.trim();
     const mes = document.getElementById('mes').value.trim();
@@ -13,7 +17,7 @@ function fetchChapter() {
         return;
     }
 
-    const devocionais = [...janeiro, ...favereiro, ...marco, ...abril, ...maio, ...junho, ...julho, ...agosto, ...setembro, ...outubro, ...novembro, ...dezembro]
+    const devocionais = [...janeiro, ...fevereiro, ...marco, ...abril, ...maio, ...junho, ...julho, ...agosto, ...setembro, ...outubro, ...novembro, ...dezembro]
 
     for (const devocional of devocionais) {
         if (devocional.dia == dia && devocional.mes == mes) {
@@ -23,7 +27,6 @@ function fetchChapter() {
     }
 
     if (devocional_busca != undefined) {
-        debugger
         const leitura_familiar = document.getElementById('leitura-familiar');
         const leitura_pessoal = document.getElementById('leitura-pessoal');
         leitura_familiar.innerHTML = ''; // Limpa o conteúdo anterior
@@ -39,11 +42,9 @@ function fetchChapter() {
                 .then(response => response.json())
                 .then((data) => {
                     const title = document.createElement('h2');
-                    debugger
                     title.textContent = `${data.book.name} ${data.chapter.number}`;
                     leitura_familiar.appendChild(title);
                     data.verses.forEach(verse => {
-                        debugger
                         const verseElement = document.createElement('p');
                         verseElement.className = 'versebox__versos';
                         verseElement.textContent = `${verse.number}. ${verse.text}`;
@@ -77,7 +78,6 @@ function fetchChapter() {
                     title.textContent = `${data.book.name} ${data.chapter.number}`;
                     leitura_pessoal.appendChild(title);
                     data.verses.forEach(verse => {
-                        debugger
                         const verseElement = document.createElement('p');
                         verseElement.className = 'versebox__versos';
                         verseElement.textContent = `${verse.number}. ${verse.text}`;
@@ -147,6 +147,7 @@ const janeiro = [
         ]
     },
     {
+        dia: 2,
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
@@ -160,7 +161,6 @@ const janeiro = [
                 versos_azuis: []        // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
             },
             {
-                dia: 2,      // Dia da leitura
                 ordem: 2,               // Ordem que o livro está na leitura
                 livro: "mt",             // Abreviação do livro 
                 capitulo: 2,             // Capitulo que será feita a leitura
@@ -291,13 +291,13 @@ const janeiro = [
         ]
     },
     {
-        dia: 4,      // Dia da leitura
+        dia: 5,      // Dia da leitura
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 4,            // Capitulo que será feita a leitura
+                capitulo: 5,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 26,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -339,13 +339,13 @@ const janeiro = [
         ]
     },
     {
-        dia: 5,      // Dia da leitura
+        dia: 6,      // Dia da leitura
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 5,            // Capitulo que será feita a leitura
+                capitulo: 6,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 32,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -387,13 +387,13 @@ const janeiro = [
         ]
     },
     {
-        dia: 6,      // Dia da leitura
+        dia: 7,      // Dia da leitura
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 6,            // Capitulo que será feita a leitura
+                capitulo: 7,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 22,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -435,13 +435,13 @@ const janeiro = [
         ]
     },
     {
-        dia: 7,      // Dia da leitura
+        dia: 8,      // Dia da leitura
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 7,            // Capitulo que será feita a leitura
+                capitulo: 8,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 24,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -483,13 +483,13 @@ const janeiro = [
         ]
     },
     {
-        dia: 8,      // Dia da leitura
+        dia: 9,      // Dia da leitura
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 8,            // Capitulo que será feita a leitura
+                capitulo: 9,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 22,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -531,13 +531,13 @@ const janeiro = [
         ]
     },
     {
-        dia: 9,      // Dia da leitura
+        dia: 10,      // Dia da leitura
         mes: 1,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 9,            // Capitulo que será feita a leitura
+                capitulo: 10,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 29,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -643,7 +643,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 12,            // Capitulo que será feita a leitura
+                capitulo: 11,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 20,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -691,7 +691,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 13,            // Capitulo que será feita a leitura
+                capitulo: 12,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 18,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -739,7 +739,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 14,            // Capitulo que será feita a leitura
+                capitulo: 13,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 24,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -787,7 +787,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 15,            // Capitulo que será feita a leitura
+                capitulo: 14,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 21,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -835,7 +835,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 16,            // Capitulo que será feita a leitura
+                capitulo: 15,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 16,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -883,7 +883,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 17,            // Capitulo que será feita a leitura
+                capitulo: 16,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 27,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -931,7 +931,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 18,            // Capitulo que será feita a leitura
+                capitulo: 17,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 7,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -979,7 +979,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 19,            // Capitulo que será feita a leitura
+                capitulo: 18,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 38,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1027,7 +1027,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 20,            // Capitulo que será feita a leitura
+                capitulo: 19,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 18,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1075,7 +1075,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 21,            // Capitulo que será feita a leitura
+                capitulo: 20,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 34,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1123,7 +1123,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 22,            // Capitulo que será feita a leitura
+                capitulo: 21,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 24,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1171,7 +1171,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 23,            // Capitulo que será feita a leitura
+                capitulo: 22,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 20,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1219,7 +1219,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 24,            // Capitulo que será feita a leitura
+                capitulo: 23,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 67,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1267,7 +1267,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 25,            // Capitulo que será feita a leitura
+                capitulo: 24,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 34,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1288,7 +1288,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 1,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 22,        // Verso que termina a leitura
@@ -1315,7 +1315,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 26,            // Capitulo que será feita a leitura
+                capitulo: 25,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 35,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1336,7 +1336,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 2,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 23,        // Verso que termina a leitura
@@ -1363,7 +1363,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 27,            // Capitulo que será feita a leitura
+                capitulo: 26,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 46,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1384,7 +1384,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 3,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 15,        // Verso que termina a leitura
@@ -1411,7 +1411,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 28,            // Capitulo que será feita a leitura
+                capitulo: 27,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 22,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1432,7 +1432,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 4,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 17,        // Verso que termina a leitura
@@ -1461,7 +1461,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 29,            // Capitulo que será feita a leitura
+                capitulo: 28,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 35,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1482,7 +1482,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 5,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 14,        // Verso que termina a leitura
@@ -1509,7 +1509,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 30,            // Capitulo que será feita a leitura
+                capitulo: 29,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 43,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1530,7 +1530,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 6,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 14,        // Verso que termina a leitura
@@ -1540,7 +1540,7 @@ const janeiro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "rom",                    // Abreviação do livro 
+                livro: "rm",                    // Abreviação do livro 
                 capitulo: 1,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 32,                // Verso que termina a leitura
@@ -1557,7 +1557,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 31,            // Capitulo que será feita a leitura
+                capitulo: 30,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 55,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1578,7 +1578,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 7,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 10,        // Verso que termina a leitura
@@ -1588,7 +1588,7 @@ const janeiro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "rom",                    // Abreviação do livro 
+                livro: "rm",                    // Abreviação do livro 
                 capitulo: 2,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 29,                // Verso que termina a leitura
@@ -1605,7 +1605,7 @@ const janeiro = [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
                 livro: "gn",            // Abreviação do livro 
-                capitulo: 32,            // Capitulo que será feita a leitura
+                capitulo: 31,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 32,        // Verso que termina a leitura
                 versos_vermelhos: [],   // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
@@ -1626,7 +1626,7 @@ const janeiro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "est",            // Abreviação do livro 
+                livro: "et",            // Abreviação do livro 
                 capitulo: 8,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 17,        // Verso que termina a leitura
@@ -1636,7 +1636,7 @@ const janeiro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "rom",                    // Abreviação do livro 
+                livro: "rm",                    // Abreviação do livro 
                 capitulo: 3,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 31,                // Verso que termina a leitura
@@ -1648,7 +1648,7 @@ const janeiro = [
     },
 ]
 
-const favereiro = [
+const fevereiro = [
     {
         dia: 1,
         mes: 2,
@@ -1734,7 +1734,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 1,
                 verso_inicial: 0,
                 verso_final: 22,
@@ -1792,7 +1792,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 2,
                 verso_inicial: 1,
                 verso_final: 13,
@@ -1839,7 +1839,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 3,
                 verso_inicial: 1,
                 verso_final: 26,
@@ -1887,7 +1887,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 4,
                 verso_inicial: 21,
                 versos_vermelhos: [],
@@ -1933,7 +1933,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 5,
                 verso_inicial: 1,
                 verso_final: 27,
@@ -1980,7 +1980,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 6,
                 verso_inicial: 1,
                 verso_final: 30,
@@ -2027,7 +2027,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 7,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -2075,7 +2075,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 1,
                 verso_inicial: 1,
                 verso_final: 22,
@@ -2122,7 +2122,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 9,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -2148,7 +2148,7 @@ const favereiro = [
             {
                 ordem: 1,
                 livro: "gn",
-                capitulo: 44,
+                capitulo: 11,
                 verso_inicial: 1,
                 verso_final: 34,
                 versos_vermelhos: [],
@@ -2169,7 +2169,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 10,
                 verso_inicial: 1,
                 verso_final: 2,
@@ -2216,7 +2216,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 11,
                 verso_inicial: 1,
                 verso_final: 20,
@@ -2263,7 +2263,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 12,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -2310,7 +2310,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 13,
                 verso_inicial: 1,
                 verso_final: 28,
@@ -2320,7 +2320,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 1,
                 verso_inicial: 1,
                 verso_final: 31,
@@ -2357,7 +2357,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 14,
                 verso_inicial: 1,
                 verso_final: 22,
@@ -2367,7 +2367,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 2,
                 verso_inicial: 1,
                 verso_final: 16,
@@ -2404,7 +2404,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 15,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -2414,7 +2414,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 3,
                 verso_inicial: 1,
                 verso_final: 23,
@@ -2451,7 +2451,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 16,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -2461,7 +2461,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "jó",
+                livro: "job",
                 capitulo: 17,
                 verso_inicial: 1,
                 verso_final: 16,
@@ -2471,7 +2471,7 @@ const favereiro = [
             },
             {
                 ordem: 3,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 4,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -2486,7 +2486,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 1,
                 verso_inicial: 1,
                 verso_final: 22,
@@ -2508,7 +2508,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 18,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -2518,7 +2518,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 5,
                 verso_inicial: 1,
                 verso_final: 13,
@@ -2533,7 +2533,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 2,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -2555,7 +2555,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 19,
                 verso_inicial: 1,
                 verso_final: 29,
@@ -2565,7 +2565,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 6,
                 verso_inicial: 1,
                 verso_final: 20,
@@ -2580,7 +2580,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 3,
                 verso_inicial: 1,
                 verso_final: 22,
@@ -2602,7 +2602,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 20,
                 verso_inicial: 1,
                 verso_final: 29,
@@ -2612,7 +2612,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 7,
                 verso_inicial: 1,
                 verso_final: 40,
@@ -2627,7 +2627,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 4,
                 verso_inicial: 1,
                 verso_final: 31,
@@ -2649,7 +2649,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 21,
                 verso_inicial: 1,
                 verso_final: 34,
@@ -2659,7 +2659,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 8,
                 verso_inicial: 1,
                 verso_final: 13,
@@ -2674,7 +2674,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 5,
                 verso_inicial: 1,
                 verso_final: 23,
@@ -2696,7 +2696,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 21,
                 verso_inicial: 1,
                 verso_final: 30,
@@ -2706,7 +2706,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 9,
                 verso_inicial: 1,
                 verso_final: 27,
@@ -2722,7 +2722,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 6,
                 verso_inicial: 1,
                 verso_final: 30,
@@ -2744,7 +2744,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 23,
                 verso_inicial: 1,
                 verso_final: 17,
@@ -2754,7 +2754,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 10,
                 verso_inicial: 1,
                 verso_final: 33,
@@ -2769,7 +2769,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 7,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -2791,7 +2791,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 24,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -2801,7 +2801,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 11,
                 verso_inicial: 1,
                 verso_final: 34,
@@ -2816,7 +2816,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 8,
                 verso_inicial: 1,
                 verso_final: 32,
@@ -2838,7 +2838,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 25,
                 verso_inicial: 1,
                 verso_final: 6,
@@ -2848,7 +2848,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "jó",
+                livro: "job",
                 capitulo: 26,
                 verso_inicial: 1,
                 verso_final: 14,
@@ -2858,7 +2858,7 @@ const favereiro = [
             },
             {
                 ordem: 3,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 12,
                 verso_inicial: 1,
                 verso_final: 31,
@@ -2873,7 +2873,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 9,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -2895,7 +2895,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 27,
                 verso_inicial: 1,
                 verso_final: 23,
@@ -2905,7 +2905,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 13,
                 verso_inicial: 1,
                 verso_final: 13,
@@ -2920,7 +2920,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 10,
                 verso_inicial: 1,
                 verso_final: 29,
@@ -2942,7 +2942,7 @@ const favereiro = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 28,
                 verso_inicial: 1,
                 verso_final: 28,
@@ -2952,7 +2952,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 14,
                 verso_inicial: 1,
                 verso_final: 40,
@@ -2967,7 +2967,7 @@ const favereiro = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 11,
                 verso_inicial: 1,
                 verso_final: 10,
@@ -2977,7 +2977,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 12,
                 verso_inicial: 1,
                 verso_final: 20,
@@ -3001,7 +3001,7 @@ const favereiro = [
 
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 29,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -3011,7 +3011,7 @@ const favereiro = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 15,
                 verso_inicial: 1,
                 verso_final: 58,
@@ -3031,7 +3031,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 12,
                 verso_inicial: 21,
                 verso_final: 51,
@@ -3053,7 +3053,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 30,
                 verso_inicial: 1,
                 verso_final: 31,
@@ -3063,7 +3063,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "1 co",
+                livro: "1co",
                 capitulo: 16,
                 verso_inicial: 1,
                 verso_final: 24,
@@ -3079,7 +3079,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 13,
                 verso_inicial: 1,
                 verso_final: 22,
@@ -3101,7 +3101,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 31,
                 verso_inicial: 1,
                 verso_final: 40,
@@ -3111,7 +3111,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 1,
                 verso_inicial: 1,
                 verso_final: 24,
@@ -3127,7 +3127,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 14,
                 verso_inicial: 1,
                 verso_final: 31,
@@ -3149,7 +3149,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 32,
                 verso_inicial: 2,
                 verso_final: 22,
@@ -3159,7 +3159,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 2,
                 verso_inicial: 1,
                 verso_final: 17,
@@ -3176,7 +3176,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 15,
                 verso_inicial: 1,
                 verso_final: 27,
@@ -3198,7 +3198,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 33,
                 verso_inicial: 1,
                 verso_final: 33,
@@ -3208,7 +3208,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 3,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -3224,7 +3224,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 16,
                 verso_inicial: 1,
                 verso_final: 36,
@@ -3246,7 +3246,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 34,
                 verso_inicial: 1,
                 verso_final: 37,
@@ -3256,7 +3256,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 4,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -3272,7 +3272,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 17,
                 verso_inicial: 1,
                 verso_final: 16,
@@ -3294,7 +3294,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 35,
                 verso_inicial: 1,
                 verso_final: 16,
@@ -3304,7 +3304,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 5,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -3320,7 +3320,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 18,
                 verso_inicial: 1,
                 verso_final: 27,
@@ -3342,7 +3342,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 36,
                 verso_inicial: 1,
                 verso_final: 33,
@@ -3352,7 +3352,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 6,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -3368,7 +3368,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 19,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -3390,7 +3390,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 37,
                 verso_inicial: 1,
                 verso_final: 24,
@@ -3400,7 +3400,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 7,
                 verso_inicial: 1,
                 verso_final: 16,
@@ -3416,7 +3416,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 20,
                 verso_inicial: 1,
                 verso_final: 26,
@@ -3438,7 +3438,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 38,
                 verso_inicial: 1,
                 verso_final: 41,
@@ -3448,7 +3448,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 8,
                 verso_inicial: 1,
                 verso_final: 24,
@@ -3464,7 +3464,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 21,
                 verso_inicial: 1,
                 verso_final: 36,
@@ -3486,7 +3486,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 39,
                 verso_inicial: 1,
                 verso_final: 30,
@@ -3496,7 +3496,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 9,
                 verso_inicial: 1,
                 verso_final: 15,
@@ -3534,7 +3534,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 40,
                 verso_inicial: 1,
                 verso_final: 24,
@@ -3544,7 +3544,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 10,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -3560,7 +3560,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 23,
                 verso_inicial: 1,
                 verso_final: 33,
@@ -3582,7 +3582,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 41,
                 verso_inicial: 1,
                 verso_final: 34,
@@ -3592,7 +3592,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 11,
                 verso_inicial: 1,
                 verso_final: 33,
@@ -3608,7 +3608,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 24,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -3630,7 +3630,7 @@ const marco = [
         leitura_pessoal: [
             {
                 ordem: 1,
-                livro: "jó",
+                livro: "job",
                 capitulo: 42,
                 verso_inicial: 1,
                 verso_final: 17,
@@ -3640,7 +3640,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 12,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -3656,7 +3656,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 25,
                 verso_inicial: 1,
                 verso_final: 40,
@@ -3688,7 +3688,7 @@ const marco = [
             },
             {
                 ordem: 2,
-                livro: "2 co",
+                livro: "2co",
                 capitulo: 13,
                 verso_inicial: 1,
                 verso_final: 14,
@@ -3704,7 +3704,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 26,
                 verso_inicial: 1,
                 verso_final: 37,
@@ -3752,7 +3752,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 27,
                 verso_inicial: 1,
                 verso_final: 21,
@@ -3800,7 +3800,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 28,
                 verso_inicial: 1,
                 verso_final: 43,
@@ -3848,7 +3848,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 29,
                 verso_inicial: 1,
                 verso_final: 46,
@@ -3896,7 +3896,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 30,
                 verso_inicial: 1,
                 verso_final: 38,
@@ -3944,7 +3944,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 31,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -3992,7 +3992,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 32,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -4088,7 +4088,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 34,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -4136,7 +4136,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 35,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -4184,7 +4184,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 36,
                 verso_inicial: 1,
                 verso_final: 38,
@@ -4280,7 +4280,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 38,
                 verso_inicial: 1,
                 verso_final: 35,
@@ -4328,7 +4328,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 39,
                 verso_inicial: 1,
                 verso_final: 43,
@@ -4376,7 +4376,7 @@ const marco = [
         leitura_familia: [
             {
                 ordem: 1,
-                livro: "êx",
+                livro: "ex",
                 capitulo: 40,
                 verso_inicial: 1,
                 verso_final: 38,
@@ -4580,7 +4580,7 @@ const abril = [
             },
             {
                 ordem: 2,
-                livro: "co",
+                livro: "cl",
                 capitulo: 2,
                 verso_inicial: 1,
                 verso_final: 23,
@@ -4644,7 +4644,7 @@ const abril = [
             },
             {
                 ordem: 2,
-                livro: "co",
+                livro: "cl",
                 capitulo: 3,
                 verso_inicial: 1,
                 verso_final: 25,
@@ -4708,7 +4708,7 @@ const abril = [
             },
             {
                 ordem: 2,
-                livro: "co",
+                livro: "cl",
                 capitulo: 4,
                 verso_inicial: 1,
                 verso_final: 18,
@@ -9542,7 +9542,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 25,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 44,        // Verso que termina a leitura
@@ -9552,7 +9552,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 6,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 20,         // Verso que termina a leitura
@@ -9564,7 +9564,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 4,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 17,        // Verso que termina a leitura
@@ -9574,7 +9574,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 40,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 17,                // Verso que termina a leitura
@@ -9584,7 +9584,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 41,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 13,                // Verso que termina a leitura
@@ -9600,7 +9600,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 26,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 25,        // Verso que termina a leitura
@@ -9610,7 +9610,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 7,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 40,         // Verso que termina a leitura
@@ -9622,7 +9622,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 5,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 17,        // Verso que termina a leitura
@@ -9632,7 +9632,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 42,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 11,                // Verso que termina a leitura
@@ -9642,7 +9642,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 43,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 5,                // Verso que termina a leitura
@@ -9658,7 +9658,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 27,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 12,        // Verso que termina a leitura
@@ -9668,7 +9668,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 8,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 13,         // Verso que termina a leitura
@@ -9680,7 +9680,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 6,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 14,        // Verso que termina a leitura
@@ -9690,7 +9690,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 44,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 26,                // Verso que termina a leitura
@@ -9706,7 +9706,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 28,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 25,        // Verso que termina a leitura
@@ -9716,7 +9716,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 9,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 27,         // Verso que termina a leitura
@@ -9728,7 +9728,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 7,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 27,        // Verso que termina a leitura
@@ -9738,7 +9738,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 45,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 17,                // Verso que termina a leitura
@@ -9754,7 +9754,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 29,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 11,        // Verso que termina a leitura
@@ -9764,7 +9764,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 30,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 31,        // Verso que termina a leitura
@@ -9774,7 +9774,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 10,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 33,         // Verso que termina a leitura
@@ -9786,7 +9786,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 8,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 18,        // Verso que termina a leitura
@@ -9796,7 +9796,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 46,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 11,                // Verso que termina a leitura
@@ -9806,7 +9806,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 47,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 9,                // Verso que termina a leitura
@@ -9822,7 +9822,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 sam",            // Abreviação do livro 
+                livro: "1sm",            // Abreviação do livro 
                 capitulo: 31,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 13,        // Verso que termina a leitura
@@ -9832,7 +9832,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 11,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 34,         // Verso que termina a leitura
@@ -9844,7 +9844,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 9,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 11,        // Verso que termina a leitura
@@ -9854,7 +9854,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 48,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 14,                // Verso que termina a leitura
@@ -9870,7 +9870,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 1,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 27,        // Verso que termina a leitura
@@ -9880,7 +9880,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 12,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 31,         // Verso que termina a leitura
@@ -9892,7 +9892,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 10,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 22,        // Verso que termina a leitura
@@ -9902,7 +9902,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 49,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 20,                // Verso que termina a leitura
@@ -9918,7 +9918,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 2,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 32,        // Verso que termina a leitura
@@ -9928,7 +9928,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 13,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 13,         // Verso que termina a leitura
@@ -9940,7 +9940,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 11,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 25,        // Verso que termina a leitura
@@ -9950,7 +9950,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 50,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 23,                // Verso que termina a leitura
@@ -9966,7 +9966,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 3,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 39,        // Verso que termina a leitura
@@ -9976,7 +9976,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 14,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 40,         // Verso que termina a leitura
@@ -9988,7 +9988,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 12,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 28,        // Verso que termina a leitura
@@ -9998,7 +9998,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 51,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 19,                // Verso que termina a leitura
@@ -10014,7 +10014,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 4,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 12,        // Verso que termina a leitura
@@ -10024,7 +10024,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 5,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 25,        // Verso que termina a leitura
@@ -10034,7 +10034,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 15,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 58,         // Verso que termina a leitura
@@ -10046,7 +10046,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 13,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 23,        // Verso que termina a leitura
@@ -10056,7 +10056,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 52,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 9,                // Verso que termina a leitura
@@ -10066,7 +10066,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 53,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 6,                // Verso que termina a leitura
@@ -10076,7 +10076,7 @@ const setembro = [
             },
             {
                 ordem: 4,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 54,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 7,                // Verso que termina a leitura
@@ -10092,7 +10092,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 6,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 23,        // Verso que termina a leitura
@@ -10102,7 +10102,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "1 cor",             // Abreviação do livro 
+                livro: "1co",             // Abreviação do livro 
                 capitulo: 16,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 24,         // Verso que termina a leitura
@@ -10114,7 +10114,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 14,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 23,        // Verso que termina a leitura
@@ -10124,7 +10124,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 55,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 23,                // Verso que termina a leitura
@@ -10140,7 +10140,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 7,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 29,        // Verso que termina a leitura
@@ -10150,7 +10150,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 1,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 24,         // Verso que termina a leitura
@@ -10162,7 +10162,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 15,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 8,        // Verso que termina a leitura
@@ -10172,7 +10172,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 56,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 13,                // Verso que termina a leitura
@@ -10182,7 +10182,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 57,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 11,                // Verso que termina a leitura
@@ -10198,7 +10198,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 8,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 18,        // Verso que termina a leitura
@@ -10208,7 +10208,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 9,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 13,        // Verso que termina a leitura
@@ -10218,7 +10218,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 2,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 17,         // Verso que termina a leitura
@@ -10230,7 +10230,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 16,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 63,        // Verso que termina a leitura
@@ -10240,7 +10240,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 58,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 11,                // Verso que termina a leitura
@@ -10250,7 +10250,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 59,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 17,                // Verso que termina a leitura
@@ -10266,7 +10266,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sam",            // Abreviação do livro 
                 capitulo: 10,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 19,        // Verso que termina a leitura
@@ -10276,7 +10276,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 13,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 18,         // Verso que termina a leitura
@@ -10288,7 +10288,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 17,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 24,        // Verso que termina a leitura
@@ -10298,7 +10298,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 60,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 12,                // Verso que termina a leitura
@@ -10308,7 +10308,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 61,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 8,                // Verso que termina a leitura
@@ -10324,7 +10324,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 11,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 27,        // Verso que termina a leitura
@@ -10334,7 +10334,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 4,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 18,         // Verso que termina a leitura
@@ -10346,7 +10346,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 18,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 32,        // Verso que termina a leitura
@@ -10356,7 +10356,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 62,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 12,                // Verso que termina a leitura
@@ -10366,7 +10366,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 63,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 11,                // Verso que termina a leitura
@@ -10382,7 +10382,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 12,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 31,        // Verso que termina a leitura
@@ -10392,7 +10392,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 5,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 21,         // Verso que termina a leitura
@@ -10404,7 +10404,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 19,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 14,        // Verso que termina a leitura
@@ -10414,7 +10414,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 64,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 10,                // Verso que termina a leitura
@@ -10424,7 +10424,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 65,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 13,                // Verso que termina a leitura
@@ -10440,7 +10440,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 13,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 39,        // Verso que termina a leitura
@@ -10450,7 +10450,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 6,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 18,         // Verso que termina a leitura
@@ -10462,7 +10462,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 20,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 49,        // Verso que termina a leitura
@@ -10472,7 +10472,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 66,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 20,                // Verso que termina a leitura
@@ -10482,7 +10482,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 67,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 7,                // Verso que termina a leitura
@@ -10498,7 +10498,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 14,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 33,        // Verso que termina a leitura
@@ -10508,7 +10508,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 7,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 16,         // Verso que termina a leitura
@@ -10520,7 +10520,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 21,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 32,        // Verso que termina a leitura
@@ -10530,7 +10530,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 68,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 35,                // Verso que termina a leitura
@@ -10546,7 +10546,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 15,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 37,        // Verso que termina a leitura
@@ -10556,7 +10556,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 8,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 24,         // Verso que termina a leitura
@@ -10568,7 +10568,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 22,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 31,        // Verso que termina a leitura
@@ -10578,7 +10578,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 69,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 36,                // Verso que termina a leitura
@@ -10594,7 +10594,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 16,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 23,        // Verso que termina a leitura
@@ -10604,7 +10604,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 9,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 15,         // Verso que termina a leitura
@@ -10616,7 +10616,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 23,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 49,        // Verso que termina a leitura
@@ -10626,7 +10626,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 70,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 5,                // Verso que termina a leitura
@@ -10636,7 +10636,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 71,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 24,                // Verso que termina a leitura
@@ -10652,7 +10652,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 17,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 29,        // Verso que termina a leitura
@@ -10662,7 +10662,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 10,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 18,         // Verso que termina a leitura
@@ -10674,7 +10674,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 24,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 27,        // Verso que termina a leitura
@@ -10684,7 +10684,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 72,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 20,                // Verso que termina a leitura
@@ -10700,7 +10700,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 18,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 33,        // Verso que termina a leitura
@@ -10710,7 +10710,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 11,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 33,         // Verso que termina a leitura
@@ -10722,7 +10722,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 25,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 17,        // Verso que termina a leitura
@@ -10732,7 +10732,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 73,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 28,                // Verso que termina a leitura
@@ -10748,7 +10748,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 19,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 43,        // Verso que termina a leitura
@@ -10758,7 +10758,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 12,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 21,         // Verso que termina a leitura
@@ -10770,7 +10770,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 26,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 21,        // Verso que termina a leitura
@@ -10780,7 +10780,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 74,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 23,                // Verso que termina a leitura
@@ -10796,7 +10796,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 20,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 26,        // Verso que termina a leitura
@@ -10806,7 +10806,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "2 cor",             // Abreviação do livro 
+                livro: "2co",             // Abreviação do livro 
                 capitulo: 13,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 14,         // Verso que termina a leitura
@@ -10818,7 +10818,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 27,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 36,        // Verso que termina a leitura
@@ -10828,7 +10828,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 75,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 10,                // Verso que termina a leitura
@@ -10838,7 +10838,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 76,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 12,                // Verso que termina a leitura
@@ -10854,7 +10854,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 21,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 22,        // Verso que termina a leitura
@@ -10864,7 +10864,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "gál",             // Abreviação do livro 
+                livro: "gl",             // Abreviação do livro 
                 capitulo: 1,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 24,         // Verso que termina a leitura
@@ -10876,7 +10876,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 28,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 26,        // Verso que termina a leitura
@@ -10886,7 +10886,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 77,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 20,                // Verso que termina a leitura
@@ -10902,7 +10902,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 22,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 51,        // Verso que termina a leitura
@@ -10912,7 +10912,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "gál",             // Abreviação do livro 
+                livro: "gl",             // Abreviação do livro 
                 capitulo: 2,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 21,         // Verso que termina a leitura
@@ -10924,7 +10924,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 29,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 21,        // Verso que termina a leitura
@@ -10934,7 +10934,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 78.1 - 37,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 37,                // Verso que termina a leitura
@@ -10950,7 +10950,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 23,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 39,        // Verso que termina a leitura
@@ -10960,7 +10960,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "gál",             // Abreviação do livro 
+                livro: "gl",             // Abreviação do livro 
                 capitulo: 3,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 29,         // Verso que termina a leitura
@@ -10972,7 +10972,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 30,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 26,        // Verso que termina a leitura
@@ -10982,7 +10982,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 78.38 - 72,                    // Capitulo que será feita a leitura
                 verso_inicial: 38,               // Verso em que se inicia a leitura
                 verso_final: 72,                // Verso que termina a leitura
@@ -10998,7 +10998,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "2 sam",            // Abreviação do livro 
+                livro: "2sm",            // Abreviação do livro 
                 capitulo: 24,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 25,        // Verso que termina a leitura
@@ -11008,7 +11008,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "gál",             // Abreviação do livro 
+                livro: "gl",             // Abreviação do livro 
                 capitulo: 4,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 31,         // Verso que termina a leitura
@@ -11020,7 +11020,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 31,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 18,        // Verso que termina a leitura
@@ -11030,7 +11030,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 79,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 13,                // Verso que termina a leitura
@@ -11046,7 +11046,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 re",            // Abreviação do livro 
+                livro: "1rs",            // Abreviação do livro 
                 capitulo: 1,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 53,        // Verso que termina a leitura
@@ -11056,7 +11056,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "gál",             // Abreviação do livro 
+                livro: "gl",             // Abreviação do livro 
                 capitulo: 5,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 26,         // Verso que termina a leitura
@@ -11068,7 +11068,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 32,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 32,        // Verso que termina a leitura
@@ -11078,7 +11078,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 80,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 19,                // Verso que termina a leitura
@@ -11094,7 +11094,7 @@ const setembro = [
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "1 re",            // Abreviação do livro 
+                livro: "1rs",            // Abreviação do livro 
                 capitulo: 2,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 46,        // Verso que termina a leitura
@@ -11104,7 +11104,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "gál",             // Abreviação do livro 
+                livro: "gl",             // Abreviação do livro 
                 capitulo: 6,             // Capitulo que será feita a leitura
                 verso_inicial: 1,        // Verso em que se inicia a leitura
                 verso_final: 18,         // Verso que termina a leitura
@@ -11116,7 +11116,7 @@ const setembro = [
         leitura_pessoal: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
-                livro: "eze",            // Abreviação do livro 
+                livro: "ez",            // Abreviação do livro 
                 capitulo: 33,            // Capitulo que será feita a leitura
                 verso_inicial: 1,       // Verso em que se inicia a leitura
                 verso_final: 33,        // Verso que termina a leitura
@@ -11126,7 +11126,7 @@ const setembro = [
             },
             {
                 ordem: 2,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 81,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 16,                // Verso que termina a leitura
@@ -11136,7 +11136,7 @@ const setembro = [
             },
             {
                 ordem: 3,               // Ordem que o livro está na leitura
-                livro: "salm",                    // Abreviação do livro 
+                livro: "sl",                    // Abreviação do livro 
                 capitulo: 82,                    // Capitulo que será feita a leitura
                 verso_inicial: 1,               // Verso em que se inicia a leitura
                 verso_final: 8,                // Verso que termina a leitura
@@ -11155,7 +11155,7 @@ const outubro = [
 const novembro = [
     {
         dia: 1,      // Dia da leitura
-        mes: 1,      // Mês da leitura
+        mes: 11,      // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
@@ -11199,8 +11199,6 @@ const novembro = [
                 versos_verdes: [1, 2],    // Lista com o número dos versos que estão em verde (colocar os números separados por virgula Ex.: [1, 2, 3])
                 versos_azuis: []                // Lista com o número dos versos que estão em azul (colocar os números separados por virgula Ex.: [1, 2, 3])
             },
-
-
             {
                 ordem: 3,               // Ordem que o livro está na leitura
                 livro: "sl",                    // Abreviação do livro 
@@ -11211,7 +11209,6 @@ const novembro = [
                 versos_verdes: [1, 2, 3, 4, 5, 6, 7, 8],    // Lista com o número dos versos que estão em verde (colocar os números separados por virgula Ex.: [1, 2, 3])
                 versos_azuis: []                // Lista com o número dos versos que estão em azul (colocar os números separados por virgula Ex.: [1, 2, 3])
             },
-
             {
                 ordem: 4,               // Ordem que o livro está na leitura
                 livro: "sl",                    // Abreviação do livro 
@@ -11220,9 +11217,8 @@ const novembro = [
                 verso_final: 9,                // Verso que termina a leitura
                 versos_vermelhos: [],    // Lista com o número dos versos que estão em vermelho (colocar os números separados por virgula Ex.: [1, 2, 3])
                 versos_verdes: [1],    // Lista com o número dos versos que estão em verde (colocar os números separados por virgula Ex.: [1, 2, 3])
-                versos_azuis: []                // Lista com o número dos versos que estão em azul (colocar os números separados por virgula Ex.: [1, 2, 3])
+                versos_azuis: []
             }
-
         ]
     },
 
@@ -11803,8 +11799,8 @@ const novembro = [
     },
 
     {
-        dia: 1,      // Dia da leitura
-        mes: 1,      // Mês da leitura
+        dia: 11,      // Dia da leitura
+        mes: 11,       // Mês da leitura
         leitura_familia: [
             {
                 ordem: 1,               // Ordem que o livro está na leitura
